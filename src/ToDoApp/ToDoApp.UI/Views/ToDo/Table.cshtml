@@ -1,0 +1,32 @@
+﻿@using ToDoApp.Domain.Entities
+
+@model IEnumerable<ToDo>
+
+<a href="/todo/index?view=list" class="btn btn-primary-outline btn-outline-primary float-end">View as List</a>
+
+<h3>Мої завдання</h3>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Name</td>
+                <td>@t.IsCompleted</td>
+                <td>
+                    <a href="/todo/view/@t.Id" class="btn btn-sm btn-primary">View</a>
+                    <a href="/todo/edit/@t.Id" class="btn btn-sm btn-success">Edit</a>
+                    <a href="/todo/delete/@t.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

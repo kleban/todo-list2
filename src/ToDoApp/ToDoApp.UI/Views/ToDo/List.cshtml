@@ -1,0 +1,23 @@
+﻿@using System.Globalization
+@using ToDoApp.Domain.Entities
+
+@model IEnumerable<ToDo>
+
+<a href="/todo/index?view=table" class="btn btn-primary-outline btn-outline-primary float-end">View as Tables</a>
+
+<h3>Мої завдання: <i>@DateTime.Now.ToString("dd MMMM yyyy HH:mm", new CultureInfo("ua-UK"))</i></h3>
+<hr />
+
+<ol>
+    @foreach (var t in Model)
+    {
+        <li>
+            <strong>@t.Name</strong>
+            <input class="form-check-input" type="checkbox" @(t.IsCompleted?"checked":"") value="" />
+            <br />                
+            <a href="/todo/view/@t.Id" class="btn btn-sm btn-primary">View</a>
+            <a href="/todo/edit/@t.Id" class="btn btn-sm btn-success">Edit</a>
+            <a href="/todo/delete/@t.Id" class="btn btn-sm btn-danger">Delete</a>               
+        </li>
+    }
+</ol>

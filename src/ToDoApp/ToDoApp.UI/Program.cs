@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using ToDoApp.Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ToDoContext>(options => options.UseInMemoryDatabase("ToDoApp_Db"));
 
 var app = builder.Build();
 
