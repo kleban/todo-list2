@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="ToDoApp.Domain/ToDoApp.Domain.csproj" />
+  <Project Path="ToDoApp.Repos/ToDoApp.Repos.csproj" />
+  <Project Path="ToDoApp.UI/ToDoApp.UI.csproj" />
+</Solution>
